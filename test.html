@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        Reload on Back
+    </div>
+
+    <script>
+        
+        // history.replaceState(null, '', 'index.html')
+
+        // history.pushState(null, '', '/home')
+        // history.pushState(null, '', '/home')
+        // history.pushState(null, '', '/home')
+        // console.log(history.state)
+        // history.replaceState(null, '', '/home')
+
+        // history.back()
+        // window.location.href = '/kdsksk'
+        window.onpopstate = () => {
+            setTimeout(ap, 9000)
+        }
+
+        function ap(){
+            console.log('hi')
+            window.location.replace('/home')
+        }
+        // document.referrer = '/home';
+        // delete window.document.referrer;
+        // window.document.__defineGetter__('referrer', function () {
+        //     return "yoururl.com";
+        // });
+        // console.log(document.referrer)
+        // var request;
+        // var url = "yoururl.com";
+
+        // if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+        //     request = new XMLHttpRequest();
+        // } else if (window.ActiveXObject) { // IE
+        //     try {
+        //         request = new ActiveXObject('Msxml2.XMLHTTP');
+        //     } catch (e) {
+        //         try {
+        //             request = new ActiveXObject('Microsoft.XMLHTTP');
+        //         } catch (e) {}
+        //     }
+        // }
+        // request.open("GET", url, true);
+        // request.send();
+
+        function alert_me(){
+            console.log('reload')
+           // history.reload();
+        }
+    </script>
+</body>
+</html>
