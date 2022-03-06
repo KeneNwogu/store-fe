@@ -15,7 +15,7 @@
               <div class="col-md-6">
                   <div class="banner banner-border">
                       <a href="#">
-                          <img src="../assets/images/demos/demo-5/banners/banner-1.jpg" alt="Banner">
+                          <!-- <img src="../assets/images/demos/demo-5/banners/banner-1.jpg" alt="Banner"> -->
                       </a>
 
                       <div class="banner-content">
@@ -29,7 +29,7 @@
               <div class="col-md-6">
                   <div class="banner banner-border-hover">
                       <a href="#">
-                          <img src="../assets/images/demos/demo-5/banners/banner-2.jpg" alt="Banner">
+                          <!-- <img src="../assets/images/demos/demo-5/banners/banner-2.jpg" alt="Banner"> -->
                       </a>
 
                       <div class="banner-content">
@@ -41,7 +41,7 @@
 
                   <div class="banner banner-border-hover">
                       <a href="#">
-                          <img src="../assets/images/demos/demo-5/banners/banner-3.jpg" alt="Banner">
+                          <!-- <img src="../assets/images/demos/demo-5/banners/banner-3.jpg" alt="Banner"> -->
                       </a>
 
                       <div class="banner-content">
@@ -89,8 +89,8 @@
             <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0.8s ease 0s; width: 1619px;"><div class="owl-item active" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
                     <figure class="product-media">
                         <a href="product.html">
-                            <img src="../assets/images/demos/demo-5/products/product-1-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-1-2.jpg" alt="Product image" class="product-image-hover">
+                            <!-- <img src="../assets/images/demos/demo-5/products/product-1-1.jpg" alt="Product image" class="product-image">
+                            <img src="../assets/images/demos/demo-5/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
                         </a>
 
                         <div class="product-action-vertical">
@@ -119,8 +119,8 @@
                 </div></div><div class="owl-item active" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
                     <figure class="product-media">
                         <a href="product.html">
-                            <img src="../assets/images/demos/demo-5/products/product-2-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-2-2.jpg" alt="Product image" class="product-image-hover">
+                            <!-- <img src="../assets/images/demos/demo-5/products/product-2-1.jpg" alt="Product image" class="product-image">
+                            <img src="../assets/images/demos/demo-5/products/product-2-2.jpg" alt="Product image" class="product-image-hover"> -->
                         </a>
 
                         <div class="product-action-vertical">
@@ -144,8 +144,8 @@
                 </div></div><div class="owl-item active" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
                     <figure class="product-media">
                         <a href="product.html">
-                            <img src="../assets/images/demos/demo-5/products/product-3-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-3-2.jpg" alt="Product image" class="product-image-hover">
+                            <!-- <img src="../assets/images/demos/demo-5/products/product-3-1.jpg" alt="Product image" class="product-image">
+                            <img src="../assets/images/demos/demo-5/products/product-3-2.jpg" alt="Product image" class="product-image-hover"> -->
                         </a>
 
                         <div class="product-action-vertical">
@@ -170,8 +170,8 @@
                 </div></div><div class="owl-item" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
                     <figure class="product-media">
                         <a href="product.html">
-                            <img src="../assets/images/demos/demo-5/products/product-4-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-4-2.jpg" alt="Product image" class="product-image-hover">
+                            <!-- <img src="../assets/images/demos/demo-5/products/product-4-1.jpg" alt="Product image" class="product-image">
+                            <img src="../assets/images/demos/demo-5/products/product-4-2.jpg" alt="Product image" class="product-image-hover"> -->
                         </a>
 
                         <div class="product-action-vertical">
@@ -195,8 +195,8 @@
                 </div></div><div class="owl-item" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
                     <figure class="product-media">
                         <a href="product.html">
-                            <img src="../assets/images/demos/demo-5/products/product-1-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-1-2.jpg" alt="Product image" class="product-image-hover">
+                            <!-- <img src="../assets/images/demos/demo-5/products/product-1-1.jpg" alt="Product image" class="product-image">
+                            <img src="../assets/images/demos/demo-5/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
                         </a>
 
                         <div class="product-action-vertical">
@@ -301,7 +301,7 @@
                         <div class="row">
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <img src="../assets/images/demos/demo-5/instagram/1.jpg" alt="img">
+                                    <!-- <img src="../assets/images/demos/demo-5/instagram/1.jpg" alt="img"> -->
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>387</a>
@@ -312,7 +312,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <img src="../assets/images/demos/demo-5/instagram/2.jpg" alt="img">
+                                    <!-- <img src="../assets/images/demos/demo-5/instagram/2.jpg" alt="img"> -->
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>691</a>
@@ -331,7 +331,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <img src="../assets/images/demos/demo-5/instagram/3.jpg" alt="img">
+                                    <!-- <img src="../assets/images/demos/demo-5/instagram/3.jpg" alt="img"> -->
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>321</a>
@@ -342,7 +342,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <img src="../assets/images/demos/demo-5/instagram/4.jpg" alt="img">
+                                    <!-- <img src="../assets/images/demos/demo-5/instagram/4.jpg" alt="img"> -->
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>44</a>
@@ -353,7 +353,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <img src="../assets/images/demos/demo-5/instagram/5.jpg" alt="img">
+                                    <!-- <img src="../assets/images/demos/demo-5/instagram/5.jpg" alt="img"> -->
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>128</a>
@@ -364,7 +364,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <img src="../assets/images/demos/demo-5/instagram/6.jpg" alt="img">
+                                    <!-- <img src="../assets/images/demos/demo-5/instagram/6.jpg" alt="img"> -->
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>433</a>
@@ -375,7 +375,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <img src="../assets/images/demos/demo-5/instagram/7.jpg" alt="img">
+                                    <!-- <img src="../assets/images/demos/demo-5/instagram/7.jpg" alt="img"> -->
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>588</a>
@@ -386,7 +386,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <img src="../assets/images/demos/demo-5/instagram/8.jpg" alt="img">
+                                    <!-- <img src="../assets/images/demos/demo-5/instagram/8.jpg" alt="img"> -->
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>87</a>
@@ -397,7 +397,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <img src="../assets/images/demos/demo-5/instagram/9.jpg" alt="img">
+                                    <!-- <img src="../assets/images/demos/demo-5/instagram/9.jpg" alt="img"> -->
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>87</a>
@@ -455,7 +455,7 @@
 
 <style>
   .intro-slide{
-    background-image: url(../assets/images/demos/demo-5/slider/slide-2.jpg);
+    /* background-image: url(../assets/images/demos/demo-5/slider/slide-2.jpg); */
   }
 
   .tab-content{
