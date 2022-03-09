@@ -7,7 +7,7 @@
 					<div class="toolbox">
 						<div class="toolbox-left">
 							<div class="toolbox-info">
-								Showing <span>9 of 56</span> Products
+								Showing <span>{{ results }} of {{ count }}</span> Products
 							</div>
 							<!-- End .toolbox-info -->
 						</div>
@@ -207,7 +207,11 @@
 					<div class="products mb-3">
 						<div class="row justify-content-center">
 							<!-- for each product from api -->
-							<div v-for="product in products" class="col-6 col-md-4 col-lg-4" :key="product._id">
+							<div
+								v-for="product in products"
+								class="col-6 col-md-4 col-lg-4"
+								:key="product._id"
+							>
 								<div class="product product-7 text-center">
 									<figure class="product-media">
 										<span class="product-label label-new"
@@ -255,6 +259,7 @@
 											<a
 												href="#"
 												class="btn-product btn-cart"
+												@click="this.addToCart(product)"
 												><span>add to cart</span></a
 											>
 										</div>
@@ -268,23 +273,23 @@
 										</div>
 										<!-- End .product-cat -->
 										<h3 class="product-title">
-											<a href="product.html"
-												>{{ product.name }}</a
-											>
+											<a href="product.html">{{
+												product.name
+											}}</a>
 										</h3>
 										<!-- End .product-title -->
-										<div class="product-price">$60.00</div>
+										<div class="product-price">₦{{ this.formatCurrency(product.price) }}</div>
 										<!-- End .product-price -->
 										<!-- <div class="ratings-container"> -->
-											<!-- <div class="ratings">
+										<!-- <div class="ratings">
 												<div
 													class="ratings-val"
 													style="width: 20%"
 												></div>
 												End .ratings-val
 											</div> -->
-											<!-- End .ratings -->
-											<!-- <span class="ratings-text"
+										<!-- End .ratings -->
+										<!-- <span class="ratings-text"
 												>( 2 Reviews )</span
 											> -->
 										<!-- </div> -->
@@ -332,7 +337,13 @@
 					<!-- Pagination nav -->
 					<nav aria-label="Page navigation">
 						<ul class="pagination justify-content-center">
-							<li :class="previous ? 'page-item' : 'page-item disabled'">
+							<li
+								:class="
+									previous
+										? 'page-item'
+										: 'page-item disabled'
+								"
+							>
 								<a
 									class="page-link page-link-prev"
 									href="#"
@@ -349,7 +360,11 @@
 								</a>
 							</li>
 
-							<li :class="next ? 'page-item' : 'page-item disabled'">
+							<li
+								:class="
+									next ? 'page-item' : 'page-item disabled'
+								"
+							>
 								<a
 									class="page-link page-link-next"
 									href="#"
@@ -1137,50 +1152,61 @@
 </template>
 
 <style>
-.header{
-	margin-top:  0 ;
+.header {
+	margin-top: 0;
 	background-color: black;
 	margin-bottom: 50px;
 }
 
-.sticky-wrapper{
+.sticky-wrapper {
 	/* position: absolute; */
 	margin-top: -10px;
 }
 </style>
 
 <script>
+	import { mapActions, mapState } from "vuex";
 	export default {
 		name: "Products",
 		data() {
 			return {
 				products: [],
 				previous: "",
-				next: ""
+				next: "",
+				count: 0,
 			};
 		},
 		beforeMount: function () {
 			// fetch products from db (page 1)
 			fetch("http://127.0.0.1:8000/products")
 				.then((res) => res.json())
-				.then((data) =>{ 
-					console.log(data)
-					this.products = data.results
-					this.previous = data.previous
-					this.next = data.next
+				.then((data) => {
+					console.log(data);
+					this.products = data.results;
+					this.previous = data.previous;
+					this.next = data.next;
+					this.count = data.count;
+					this.results = data.results.length;
 				});
 		},
 		methods: {
-			fetchProductPage: function(page){
+			fetchProductPage: function (page) {
 				fetch(page)
 					.then((res) => res.json())
-					.then((data) =>{ 
-						console.log(data)
-						this.products = data.results
-						this.previous = data.previous
-						this.next = data.next
+					.then((data) => {
+						console.log(data);
+						this.products = data.results;
+						this.previous = data.previous;
+						this.next = data.next;
 					});
+			},
+			...mapActions(["addToCart", "removeFromCart"]),
+			formatCurrency: function (price){
+				return price.toLocaleString();
 			}
-		}
+		},
+		computed: {
+			...mapState(["cart"])
+		},
 	};
 </script>
