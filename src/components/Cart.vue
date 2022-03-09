@@ -18,7 +18,7 @@
 					<div class="product-cart-details">
 						<h4 class="product-title">
 							<a href="product.html"
-								>Beige knitted elastic runner shoes</a
+								>{{ item.name }}</a
 							>
 						</h4>
 						<span class="cart-product-info"
@@ -49,7 +49,7 @@
 			</div>
 			<!-- End .dropdown-cart-total -->
 			<div class="dropdown-cart-action">
-				<a href="cart.html" class="btn btn-primary">View Cart</a
+				<router-link to="/cart" class="btn btn-primary">View Cart</router-link
 				><a href="checkout.html" class="btn btn-outline-primary-2"
 					><span>Checkout</span><i class="icon-long-arrow-right"></i
 				></a>
