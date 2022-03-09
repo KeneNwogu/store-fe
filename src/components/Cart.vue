@@ -22,7 +22,7 @@
 							>
 						</h4>
 						<span class="cart-product-info"
-							><span class="cart-product-qty">{{ item.quantity }}</span> x ₦{{ item.price }}
+							><span class="cart-product-qty">{{ item.quantity }}</span> x ₦{{ formatCurrency(item.price) }}
 						</span>
 					</div>
 					<!-- End .product-cart-details -->
@@ -74,6 +74,7 @@ export default {
 			'removeFromCart'
 		]),
 		formatCurrency: function (price){
+			price = Math.round(price)
 			return price.toLocaleString();
 		}
 	},

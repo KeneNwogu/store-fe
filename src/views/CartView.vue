@@ -296,6 +296,7 @@
             ]),
 
             formatCurrency: function (price){
+                price = Math.round(price)
                 return price.toLocaleString();
             }
         }

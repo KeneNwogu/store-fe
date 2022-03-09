@@ -5,7 +5,7 @@
           <h3 class="intro-subtitle text-white">Limited time only</h3><!-- End .h3 intro-subtitle -->
           <h1 class="intro-title text-white">Treat your self</h1><!-- End .intro-title -->
           <div class="intro-text text-white">Up to 50% off</div><!-- End .intro-text -->
-          <router-link to="/store" class="btn btn-primary">Shop NOW</router-link>
+          <router-link to="/products" class="btn btn-primary">Shop NOW</router-link>
           <!-- <img src="../assets/images/demos/demo-5/slider/slide-2.jpg" alt="" srcset=""> -->
       </div><!-- End .intro-content -->
     </div>
@@ -14,34 +14,34 @@
           <div class="row">
               <div class="col-md-6">
                   <div class="banner banner-border">
-                      <a href="#">
-                          <!-- <img src="../assets/images/demos/demo-5/banners/banner-1.jpg" alt="Banner"> -->
-                      </a>
+                      <router-link to="/products">
+                          <img src="../assets/images/demo-5/banners/banner-1.jpg" alt="Banner">
+                      </router-link>
 
                       <div class="banner-content">
                           <h4 class="banner-subtitle"><a href="#">Trending now</a></h4><!-- End .banner-subtitle -->
                           <h3 class="banner-title"><a href="#"><span>This Week's<br>Most Wanted</span></a></h3><!-- End .banner-title -->
-                          <a href="#" class="btn btn-outline-primary-2 banner-link">Discover Now<i class="icon-long-arrow-right"></i></a>
+                          <router-link to="/products" class="btn btn-outline-primary-2 banner-link">Discover Now<i class="icon-long-arrow-right"></i></router-link>
                       </div><!-- End .banner-content -->
                   </div><!-- End .banner -->
               </div><!-- End .col-md-6-->
 
               <div class="col-md-6">
                   <div class="banner banner-border-hover">
-                      <a href="#">
-                          <!-- <img src="../assets/images/demos/demo-5/banners/banner-2.jpg" alt="Banner"> -->
-                      </a>
+                      <router-link to="/products">
+                          <img src="../assets/images/demo-5/banners/banner-2.jpg" alt="Banner">
+                      </router-link>
 
                       <div class="banner-content">
                           <h4 class="banner-subtitle"><a href="#">Limited time only.</a></h4><!-- End .banner-subtitle -->
                           <h3 class="banner-title"><a href="#"><span>Trainers &amp; Sportwear<br>Sale Up to 70% off</span></a></h3><!-- End .banner-title -->
-                          <a href="#" class="btn btn-outline-primary-2 banner-link">Shop Now<i class="icon-long-arrow-right"></i></a>
+                          <router-link to="/products" class="btn btn-outline-primary-2 banner-link">Shop Now<i class="icon-long-arrow-right"></i></router-link>
                       </div><!-- End .banner-content -->
                   </div><!-- End .banner -->
 
                   <div class="banner banner-border-hover">
                       <a href="#">
-                          <!-- <img src="../assets/images/demos/demo-5/banners/banner-3.jpg" alt="Banner"> -->
+                          <img src="../assets/images/demo-5/banners/banner-3.jpg" alt="Banner">
                       </a>
 
                       <div class="banner-content">
@@ -78,152 +78,36 @@
     <div class="tab-content tab-content-carousel">
         <div class="tab-pane p-0 fade show active" id="trendy-all-tab" role="tabpanel" aria-labelledby="trendy-all-link">
             <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow owl-loaded owl-drag" data-toggle="owl">
-                <!-- End .product -->
+            <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0.8s ease 0s; width: 1619px;">
+                    <div class="owl-item active" style="width: 303.667px; margin-right: 20px;" v-for="item in featured" :key="item._id">
+                        <div class="product product-2">
+                            <figure class="product-media">
+                                <a href="product.html">
+                                    <img :src="item.images[0]" alt="Product image" class="product-image">
+                                    <img :src="item.images[1]" alt="Product image" class="product-image-hover">
+                                </a>
 
-                <!-- End .product -->
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-wishlist btn-expandable" title="Add to wishlist"><span>add to wishlist</span></a>
+                                </div><!-- End .product-action -->
 
-                <!-- End .product -->
+                                <div class="product-action product-action-transparent">
+                                    <a @click="addToCart(item)" class="btn-product btn-cart"><span>add to cart</span></a>
+                                </div><!-- End .product-action -->
+                            </figure><!-- End .product-media -->
 
-                <!-- End .product -->
-                <!-- End .product -->
-            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0.8s ease 0s; width: 1619px;"><div class="owl-item active" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
-                    <figure class="product-media">
-                        <a href="product.html">
-                            <!-- <img src="../assets/images/demos/demo-5/products/product-1-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable" title="Add to wishlist"><span>add to wishlist</span></a>
-                        </div><!-- End .product-action -->
-
-                        <div class="product-action product-action-transparent">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
-
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Clothing</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Vest dress</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            $9.99
-                        </div><!-- End .product-price -->
-
-                        <div class="product-nav product-nav-dots">
-                            <a href="#" class="active" style="background: #2d272b;"><span class="sr-only">Color name</span></a>
-                            <a href="#" style="background: #8f957d;"><span class="sr-only">Color name</span></a>
-                        </div><!-- End .product-nav -->
-                    </div><!-- End .product-body -->
-                </div></div><div class="owl-item active" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
-                    <figure class="product-media">
-                        <a href="product.html">
-                            <!-- <img src="../assets/images/demos/demo-5/products/product-2-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-2-2.jpg" alt="Product image" class="product-image-hover"> -->
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable" title="Add to wishlist"><span>add to wishlist</span></a>
-                        </div><!-- End .product-action -->
-
-                        <div class="product-action product-action-transparent">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
-
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Clothing</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Dress with a belt</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            $29.99
-                        </div><!-- End .product-price -->
-                    </div><!-- End .product-body -->
-                </div></div><div class="owl-item active" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
-                    <figure class="product-media">
-                        <a href="product.html">
-                            <!-- <img src="../assets/images/demos/demo-5/products/product-3-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-3-2.jpg" alt="Product image" class="product-image-hover"> -->
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable" title="Add to wishlist"><span>add to wishlist</span></a>
-                        </div><!-- End .product-action -->
-
-                        <div class="product-action product-action-transparent">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
-
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Shoes</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Sandals</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            <span class="new-price">Now $24.99</span>
-                            <span class="old-price">Was $30.99</span>
-                        </div><!-- End .product-price -->
-                    </div><!-- End .product-body -->
-                </div></div><div class="owl-item" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
-                    <figure class="product-media">
-                        <a href="product.html">
-                            <!-- <img src="../assets/images/demos/demo-5/products/product-4-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-4-2.jpg" alt="Product image" class="product-image-hover"> -->
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable" title="Add to wishlist"><span>add to wishlist</span></a>
-                        </div><!-- End .product-action -->
-
-                        <div class="product-action product-action-transparent">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
-
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Handbags</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Bucket bag</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            $17.99
-                        </div><!-- End .product-price -->
-                    </div><!-- End .product-body -->
-                </div></div><div class="owl-item" style="width: 303.667px; margin-right: 20px;"><div class="product product-2">
-                    <figure class="product-media">
-                        <a href="product.html">
-                            <!-- <img src="../assets/images/demos/demo-5/products/product-1-1.jpg" alt="Product image" class="product-image">
-                            <img src="../assets/images/demos/demo-5/products/product-1-2.jpg" alt="Product image" class="product-image-hover"> -->
-                        </a>
-
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable" title="Add to wishlist"><span>add to wishlist</span></a>
-                        </div><!-- End .product-action -->
-
-                        <div class="product-action product-action-transparent">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
-
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Clothing</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Vest dress</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            $9.99
-                        </div><!-- End .product-price -->
-
-                        <div class="product-nav product-nav-dots">
-                            <a href="#" class="active" style="background: #2d272b;"><span class="sr-only">Color name</span></a>
-                            <a href="#" style="background: #8f957d;"><span class="sr-only">Color name</span></a>
-                        </div><!-- End .product-nav -->
-                    </div><!-- End .product-body -->
+                            <div class="product-body">
+                                <div class="product-cat">
+                                    <a href="#">Clothing</a>
+                                </div><!-- End .product-cat -->
+                                <h3 class="product-title"><a href="product.html">{{ item.name }}</a></h3><!-- End .product-title -->
+                                <div class="product-price">
+                                    ₦{{ formatCurrency(item.price) }}
+                                </div><!-- End .product-price -->
+                            </div><!-- End .product-body -->
+                    </div>
                 </div>
-            </div>
             </div></div>
             <!-- <div class="owl-nav disabled">
                 <button type="button" role="presentation" class="owl-prev">
@@ -301,7 +185,7 @@
                         <div class="row">
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <!-- <img src="../assets/images/demos/demo-5/instagram/1.jpg" alt="img"> -->
+                                    <img src="../assets/images/demo-5/instagram/1.jpg" alt="img">
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>387</a>
@@ -312,7 +196,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <!-- <img src="../assets/images/demos/demo-5/instagram/2.jpg" alt="img"> -->
+                                    <img src="../assets/images/demo-5/instagram/2.jpg" alt="img">
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>691</a>
@@ -331,7 +215,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <!-- <img src="../assets/images/demos/demo-5/instagram/3.jpg" alt="img"> -->
+                                    <img src="../assets/images/demo-5/instagram/3.jpg" alt="img">
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>321</a>
@@ -342,7 +226,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <!-- <img src="../assets/images/demos/demo-5/instagram/4.jpg" alt="img"> -->
+                                    <img src="../assets/images/demo-5/instagram/4.jpg" alt="img">
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>44</a>
@@ -353,7 +237,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <!-- <img src="../assets/images/demos/demo-5/instagram/5.jpg" alt="img"> -->
+                                    <img src="../assets/images/demo-5/instagram/5.jpg" alt="img">
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>128</a>
@@ -364,7 +248,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <!-- <img src="../assets/images/demos/demo-5/instagram/6.jpg" alt="img"> -->
+                                    <img src="../assets/images/demo-5/instagram/6.jpg" alt="img">
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>433</a>
@@ -375,7 +259,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <!-- <img src="../assets/images/demos/demo-5/instagram/7.jpg" alt="img"> -->
+                                    <img src="../assets/images/demo-5/instagram/7.jpg" alt="img">
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>588</a>
@@ -386,7 +270,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <!-- <img src="../assets/images/demos/demo-5/instagram/8.jpg" alt="img"> -->
+                                    <img src="../assets/images/demo-5/instagram/8.jpg" alt="img">
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>87</a>
@@ -397,7 +281,7 @@
 
                             <div class="feed-col">
                                 <div class="instagram-feed">
-                                    <!-- <img src="../assets/images/demos/demo-5/instagram/9.jpg" alt="img"> -->
+                                    <img src="../assets/images/demo-5/instagram/9.jpg" alt="img">
 
                                     <div class="instagram-feed-content">
                                         <a href="#"><i class="icon-heart-o"></i>87</a>
@@ -468,10 +352,23 @@
 </style>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'Home',
+  computed: {
+      ...mapState([
+          'featured'
+      ])
+  },
+  methods: {
+      ...mapActions([
+          'addToCart'
+      ]),
+    formatCurrency: function (price){
+        price = Math.round(price)
+        return price.toLocaleString();
+    }
+  }
 }
 </script>

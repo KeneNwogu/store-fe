@@ -1,6 +1,6 @@
 <template>
-	<header class="header header-5">
-		<div class="sticky-wrapper" style="height: 63.5px">
+	<header class="header header-5" style="position: fixed; background-color: black">
+		<div class="sticky-wrapper" style="height: 63.5px;">
 			<div
 				class="header-middle sticky-header"
 				style="padding-right: 0px"
@@ -14,7 +14,7 @@
 
 						<a href="index.html" class="logo">
 							<img
-								src="assets/images/demos/demo-5/logo.png"
+								src="../assets/images/logo.png"
 								alt="Molla Logo"
 								width="105"
 								height="25"
