@@ -217,13 +217,13 @@
 										<span class="product-label label-new"
 											>New</span
 										>
-										<a href="product.html">
+										<router-link :to="{ name: 'ProductDetails', params: { id: item._id }}">
 											<img
 												:src="product.images[0]"
 												alt="Product image"
 												class="product-image"
 											/>
-										</a>
+										</router-link>
 
 										<div class="product-action-vertical">
 											<a
@@ -273,9 +273,9 @@
 										</div>
 										<!-- End .product-cat -->
 										<h3 class="product-title">
-											<a href="product.html">{{
+											<router-link :to="{ name: 'ProductDetails', params: { id: item._id }}">{{
 												product.name
-											}}</a>
+											}}</router-link>
 										</h3>
 										<!-- End .product-title -->
 										<div class="product-price">₦{{ this.formatCurrency(product.price) }}</div>

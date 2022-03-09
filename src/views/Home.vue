@@ -47,7 +47,7 @@
                       <div class="banner-content">
                           <h4 class="banner-subtitle"><a href="#">This week we love...</a></h4><!-- End .banner-subtitle -->
                           <h3 class="banner-title"><a href="#"><span>Womens <br>Holiday Clothes</span></a></h3><!-- End .banner-title -->
-                          <a href="#" class="btn btn-outline-primary-2 banner-link">Discover Now<i class="icon-long-arrow-right"></i></a>
+                          <router-link to="/products" class="btn btn-outline-primary-2 banner-link">Discover Now<i class="icon-long-arrow-right"></i></router-link>
                       </div><!-- End .banner-content -->
                   </div><!-- End .banner -->
               </div><!-- End .col-md-6 -->
@@ -83,10 +83,10 @@
                     <div class="owl-item active" style="width: 303.667px; margin-right: 20px;" v-for="item in featured" :key="item._id">
                         <div class="product product-2">
                             <figure class="product-media">
-                                <a href="product.html">
+                                <router-link :to="{ name: 'ProductDetails', params: { id: item._id }}">
                                     <img :src="item.images[0]" alt="Product image" class="product-image">
                                     <img :src="item.images[1]" alt="Product image" class="product-image-hover">
-                                </a>
+                                </router-link>
 
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-wishlist btn-expandable" title="Add to wishlist"><span>add to wishlist</span></a>
@@ -101,7 +101,7 @@
                                 <div class="product-cat">
                                     <a href="#">Clothing</a>
                                 </div><!-- End .product-cat -->
-                                <h3 class="product-title"><a href="product.html">{{ item.name }}</a></h3><!-- End .product-title -->
+                                <h3 class="product-title"><router-link :to="{ name: 'ProductDetails', params: { id: item._id }}">{{ item.name }}</router-link></h3><!-- End .product-title -->
                                 <div class="product-price">
                                     ₦{{ formatCurrency(item.price) }}
                                 </div><!-- End .product-price -->
