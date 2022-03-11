@@ -217,7 +217,7 @@
 										<span class="product-label label-new"
 											>New</span
 										>
-										<router-link :to="{ name: 'ProductDetails', params: { id: item._id }}">
+										<router-link :to="{ name: 'ProductDetails', params: { id: product._id }}">
 											<img
 												:src="product.images[0]"
 												alt="Product image"
@@ -273,7 +273,7 @@
 										</div>
 										<!-- End .product-cat -->
 										<h3 class="product-title">
-											<router-link :to="{ name: 'ProductDetails', params: { id: item._id }}">{{
+											<router-link :to="{ name: 'ProductDetails', params: { id: product._id }}">{{
 												product.name
 											}}</router-link>
 										</h3>

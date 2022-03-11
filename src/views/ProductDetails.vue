@@ -13,21 +13,10 @@
                                 </a>
                             </figure><!-- End .product-main-image -->
 
-                            <div id="product-zoom-gallery" class="product-image-gallery" v-for="(image, index) in productData.images" :key="index">
-                                <a class="product-gallery-item active" href="#" :data-zoom-image="image">
-                                    <img :src="image" alt="product side">
+                            <div id="product-zoom-gallery" class="product-image-gallery">
+                                <a class="product-gallery-item" href="#" :data-zoom-image="image" v-for="(image, index) in productData.images" :key="index">
+                                    <img :src="image" alt="product side" v-if="index < 4">
                                 </a>
-                                <!-- <a class="product-gallery-item" href="#" data-image="assets/images/products/single/2.jpg" data-zoom-image="assets/images/products/single/2-big.jpg">
-                                    <img src="assets/images/products/single/2-small.jpg" alt="product cross">
-                                </a>
-
-                                <a class="product-gallery-item" href="#" data-image="assets/images/products/single/3.jpg" data-zoom-image="assets/images/products/single/3-big.jpg">
-                                    <img src="assets/images/products/single/3-small.jpg" alt="product with model">
-                                </a>
-
-                                <a class="product-gallery-item" href="#" data-image="assets/images/products/single/4.jpg" data-zoom-image="assets/images/products/single/4-big.jpg">
-                                    <img src="assets/images/products/single/4-small.jpg" alt="product back">
-                                </a> -->
                             </div><!-- End .product-image-gallery -->
                         </div><!-- End .row -->
                     </div><!-- End .product-gallery -->
@@ -68,12 +57,25 @@
                         <div class="details-filter-row details-row-size">
                             <label for="qty">Qty:</label>
                             <div class="product-details-quantity">
-                                <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;"><div class="input-group  input-spinner"><div class="input-group-prepend"><button style="min-width: 26px" class="btn btn-decrement btn-spinner" type="button"><i class="icon-minus"></i></button></div><input type="text" style="text-align: center" class="form-control " required="" placeholder=""><div class="input-group-append"><button style="min-width: 26px" class="btn btn-increment btn-spinner" type="button"><i class="icon-plus"></i></button></div></div>
+                                <input type="number" id="qty" class="form-control" :value="cartItem.quantity" min="1" max="10" step="1" data-decimals="0" required="" style="display: none;">
+                                <div class="input-group  input-spinner">
+                                    <div class="input-group-prepend">
+                                        <button style="min-width: 26px" class="btn btn-decrement btn-spinner" type="button" @click="removeQuantity(cartItem)">
+                                            <i class="icon-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" style="text-align: center" class="form-control " required="" :placeholder="cartItem.quantity ? cartItem.quantity : 0">
+                                    <div class="input-group-append">
+                                        <button style="min-width: 26px" class="btn btn-increment btn-spinner" type="button" @click="addQuantity(cartItem)">
+                                            <i class="icon-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div><!-- End .product-details-quantity -->
                         </div><!-- End .details-filter-row -->
 
                         <div class="product-details-action">
-                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                            <a @click="addToCart(cartItem)" class="btn-product btn-cart"><span>add to cart</span></a>
 
                             <div class="details-action-wrapper">
                                 <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
@@ -104,10 +106,11 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 export default {
     data(){
         return {
-
+            productData: {}
         }
     },
     created(){
@@ -126,6 +129,34 @@ export default {
                 .then((data) => {
                     this.productData = data
                 })
+        },
+        addQuantity: function(cartItem){
+            if (cartItem.quantity) cartItem.quantity += 1;
+            else{
+                cartItem.quantity = 1
+            }
+        },
+        removeQuantity: function(cartItem){
+            if (cartItem.quantity && cartItem.quantity > 0) cartItem.quantity -= 1;
+            else{
+                cartItem.quantity = 0
+            }
+        },
+        ...mapActions([
+            'addToCart'
+        ]),
+    },
+    computed: {
+        ...mapState([
+            'cart'
+        ]),
+        cartItem: function(){
+            console.log(this.cart.filter((item) => item._id == this.$route.params.id))
+            let item = this.cart.filter((item) => item._id == this.$route.params.id)[0]
+            if (item) return item
+            else{
+                return this.productData
+            }
         }
     }
 }

@@ -20,17 +20,17 @@
 								<td class="product-col">
 									<div class="product">
 										<figure class="product-media">
-											<a href="#">
+											<router-link :to="{ name: 'ProductDetails', params: { id: item._id }}">
 												<img
 													:src="item.images[0]"
 													alt="Product image"
 												/>
-											</a>
+											</router-link>
 										</figure>
 
 										<h3 class="product-title">
-											<a href="#"
-												>{{ item.name }}</a
+											<router-link :to="{ name: 'ProductDetails', params: { id: item._id }}"
+												>{{ item.name }}</router-link
 											>
 										</h3>
 										<!-- End .product-title -->

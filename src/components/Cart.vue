@@ -14,11 +14,11 @@
 		<div class="dropdown-menu dropdown-menu-right">
 			<div class="dropdown-cart-products" v-if="cart.length > 0">
 				<!-- for each product in cart -->
-				<div class="product" v-for="item in cart" :key="item.id">
+				<div class="product" v-for="item in cart" :key="item._id">
 					<div class="product-cart-details">
 						<h4 class="product-title">
-							<a href="product.html"
-								>{{ item.name }}</a
+							<router-link :to="{ name: 'ProductDetails', params: { id: item._id }}"
+								>{{ item.name }}</router-link
 							>
 						</h4>
 						<span class="cart-product-info"
@@ -27,11 +27,11 @@
 					</div>
 					<!-- End .product-cart-details -->
 					<figure class="product-image-container">
-						<a href="product.html" class="product-image"
+						<router-link :to="{ name: 'ProductDetails', params: { id: item._id }}" class="product-image"
 							><img
 								:src="item.images[0]"
 								alt="product"
-						/></a>
+						/></router-link>
 					</figure>
 					<a @click="removeFromCart(item)" class="btn-remove" title="Remove Product">
 						<i class="icon-close"></i>
