@@ -61,7 +61,7 @@
 														btn-spinner
 													"
 													type="button"
-                                                    @click="removeFromCart(item)"
+                                                    @click="removeQuantity(item)"
 												>
 													<i class="icon-minus"></i>
 												</button>
@@ -82,7 +82,7 @@
 														btn-spinner
 													"
 													type="button"
-                                                    @click="addToCart(item)"
+                                                    @click="addQuantity(item)"
 												>
 													<i class="icon-plus"></i>
 												</button>
@@ -298,7 +298,19 @@
             formatCurrency: function (price){
                 price = Math.round(price)
                 return price.toLocaleString();
-            }
+            },
+			addQuantity: function(cartItem){
+				if (cartItem.quantity) cartItem.quantity += 1;
+				else{
+					cartItem.quantity = 1
+				}
+			},
+			removeQuantity: function(cartItem){
+				if (cartItem.quantity && cartItem.quantity > 0) cartItem.quantity -= 1;
+				else{
+					cartItem.quantity = 0
+				}
+			},
         }
     };
 </script>

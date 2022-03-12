@@ -7,7 +7,9 @@
 					<div class="toolbox">
 						<div class="toolbox-left">
 							<div class="toolbox-info">
-								Showing <span>{{ results }} of {{ count }}</span> Products
+								Showing
+								<span>{{ results }} of {{ count }}</span>
+								Products
 							</div>
 							<!-- End .toolbox-info -->
 						</div>
@@ -204,7 +206,7 @@
 					</div>
 					<!-- End .toolbox -->
 
-					<div class="products mb-3">
+					<div class="products mb-3" v-if="products">
 						<div class="row justify-content-center">
 							<!-- for each product from api -->
 							<div
@@ -217,7 +219,12 @@
 										<span class="product-label label-new"
 											>New</span
 										>
-										<router-link :to="{ name: 'ProductDetails', params: { id: product._id }}">
+										<router-link
+											:to="{
+												name: 'ProductDetails',
+												params: { id: product._id },
+											}"
+										>
 											<img
 												:src="product.images[0]"
 												alt="Product image"
@@ -273,12 +280,22 @@
 										</div>
 										<!-- End .product-cat -->
 										<h3 class="product-title">
-											<router-link :to="{ name: 'ProductDetails', params: { id: product._id }}">{{
-												product.name
-											}}</router-link>
+											<router-link
+												:to="{
+													name: 'ProductDetails',
+													params: { id: product._id },
+												}"
+												>{{ product.name }}</router-link
+											>
 										</h3>
 										<!-- End .product-title -->
-										<div class="product-price">₦{{ this.formatCurrency(product.price) }}</div>
+										<div class="product-price">
+											₦{{
+												this.formatCurrency(
+													product.price
+												)
+											}}
+										</div>
 										<!-- End .product-price -->
 										<!-- <div class="ratings-container"> -->
 										<!-- <div class="ratings">
@@ -304,12 +321,14 @@
 												<img
 													:src="product.images[0]"
 													alt="product desc"
+													style="width: 100%; height: 100%"
 												/>
 											</a>
 											<a href="#">
 												<img
 													:src="product.images[1]"
 													alt="product desc"
+													style="width: 100%; height: 100%"
 												/>
 											</a>
 
@@ -317,6 +336,7 @@
 												<img
 													:src="product.images[2]"
 													alt="product desc"
+													style="width: 100%; height: 100%"
 												/>
 											</a>
 										</div>
@@ -330,6 +350,19 @@
 							<!-- end for -->
 						</div>
 						<!-- End .row -->
+					</div>
+
+					<div v-else class="products mb-3">
+						<div class="lds-roller">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
 					</div>
 					<!-- End .products -->
 
@@ -412,7 +445,11 @@
 									<div
 										class="filter-items filter-items-count"
 									>
-										<div class="filter-item">
+										<div
+											class="filter-item"
+											v-for="keyword in keywords"
+											:key="keyword._id"
+										>
 											<div
 												class="
 													custom-control
@@ -422,409 +459,28 @@
 												<input
 													type="checkbox"
 													class="custom-control-input"
-													id="cat-1"
+													:value="keyword.keyword"
+													:id="keyword.keyword"
+													v-model="
+														keyword_search_params
+													"
 												/>
 												<label
 													class="custom-control-label"
-													for="cat-1"
-													>Dresses</label
+													:for="keyword.keyword"
+													>{{
+														keyword.keyword
+													}}</label
 												>
 											</div>
 											<!-- End .custom-checkbox -->
-											<span class="item-count">3</span>
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="cat-2"
-												/>
-												<label
-													class="custom-control-label"
-													for="cat-2"
-													>T-shirts</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-											<span class="item-count">0</span>
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="cat-3"
-												/>
-												<label
-													class="custom-control-label"
-													for="cat-3"
-													>Bags</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-											<span class="item-count">4</span>
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="cat-4"
-												/>
-												<label
-													class="custom-control-label"
-													for="cat-4"
-													>Jackets</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-											<span class="item-count">2</span>
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="cat-5"
-												/>
-												<label
-													class="custom-control-label"
-													for="cat-5"
-													>Shoes</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-											<span class="item-count">2</span>
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="cat-6"
-												/>
-												<label
-													class="custom-control-label"
-													for="cat-6"
-													>Jumpers</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-											<span class="item-count">1</span>
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="cat-7"
-												/>
-												<label
-													class="custom-control-label"
-													for="cat-7"
-													>Jeans</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-											<span class="item-count">1</span>
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="cat-8"
-												/>
-												<label
-													class="custom-control-label"
-													for="cat-8"
-													>Sportwear</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-											<span class="item-count">0</span>
+											<span class="item-count">{{
+												keyword.count
+											}}</span>
 										</div>
 										<!-- End .filter-item -->
 									</div>
 									<!-- End .filter-items -->
-								</div>
-								<!-- End .widget-body -->
-							</div>
-							<!-- End .collapse -->
-						</div>
-						<!-- End .widget -->
-
-						<div class="widget widget-collapsible">
-							<h3 class="widget-title">
-								<a
-									data-toggle="collapse"
-									href="#widget-2"
-									role="button"
-									aria-expanded="true"
-									aria-controls="widget-2"
-								>
-									Size
-								</a>
-							</h3>
-							<!-- End .widget-title -->
-
-							<div class="collapse show" id="widget-2">
-								<div class="widget-body">
-									<div class="filter-items">
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="size-1"
-												/>
-												<label
-													class="custom-control-label"
-													for="size-1"
-													>XS</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="size-2"
-												/>
-												<label
-													class="custom-control-label"
-													for="size-2"
-													>S</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													checked=""
-													id="size-3"
-												/>
-												<label
-													class="custom-control-label"
-													for="size-3"
-													>M</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													checked=""
-													id="size-4"
-												/>
-												<label
-													class="custom-control-label"
-													for="size-4"
-													>L</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="size-5"
-												/>
-												<label
-													class="custom-control-label"
-													for="size-5"
-													>XL</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="size-6"
-												/>
-												<label
-													class="custom-control-label"
-													for="size-6"
-													>XXL</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-									</div>
-									<!-- End .filter-items -->
-								</div>
-								<!-- End .widget-body -->
-							</div>
-							<!-- End .collapse -->
-						</div>
-						<!-- End .widget -->
-
-						<div class="widget widget-collapsible">
-							<h3 class="widget-title">
-								<a
-									data-toggle="collapse"
-									href="#widget-3"
-									role="button"
-									aria-expanded="true"
-									aria-controls="widget-3"
-								>
-									Colour
-								</a>
-							</h3>
-							<!-- End .widget-title -->
-
-							<div class="collapse show" id="widget-3">
-								<div class="widget-body">
-									<div class="filter-colors">
-										<a href="#" style="background: #b87145"
-											><span class="sr-only"
-												>Color Name</span
-											></a
-										>
-										<a href="#" style="background: #f0c04a"
-											><span class="sr-only"
-												>Color Name</span
-											></a
-										>
-										<a href="#" style="background: #333333"
-											><span class="sr-only"
-												>Color Name</span
-											></a
-										>
-										<a
-											href="#"
-											class="selected"
-											style="background: #cc3333"
-											><span class="sr-only"
-												>Color Name</span
-											></a
-										>
-										<a href="#" style="background: #3399cc"
-											><span class="sr-only"
-												>Color Name</span
-											></a
-										>
-										<a href="#" style="background: #669933"
-											><span class="sr-only"
-												>Color Name</span
-											></a
-										>
-										<a href="#" style="background: #f2719c"
-											><span class="sr-only"
-												>Color Name</span
-											></a
-										>
-										<a href="#" style="background: #ebebeb"
-											><span class="sr-only"
-												>Color Name</span
-											></a
-										>
-									</div>
-									<!-- End .filter-colors -->
 								</div>
 								<!-- End .widget-body -->
 							</div>
@@ -849,154 +505,31 @@
 							<div class="collapse show" id="widget-4">
 								<div class="widget-body">
 									<div class="filter-items">
-										<div class="filter-item">
+										<div
+											class="filter-item"
+											v-for="(brand, index) in brands"
+											:key="brand._id"
+										>
 											<div
+												v-if="index < 7"
 												class="
-													custom-control
-													custom-checkbox
+													custom-control custom-radio
 												"
 											>
 												<input
-													type="checkbox"
+													type="radio"
 													class="custom-control-input"
-													id="brand-1"
+													name="brand"
+													:value="brand.brand"
+													:id="brand.brand"
+													v-model="
+														brand_search_params
+													"
 												/>
 												<label
 													class="custom-control-label"
-													for="brand-1"
-													>Next</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="brand-2"
-												/>
-												<label
-													class="custom-control-label"
-													for="brand-2"
-													>River Island</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="brand-3"
-												/>
-												<label
-													class="custom-control-label"
-													for="brand-3"
-													>Geox</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="brand-4"
-												/>
-												<label
-													class="custom-control-label"
-													for="brand-4"
-													>New Balance</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="brand-5"
-												/>
-												<label
-													class="custom-control-label"
-													for="brand-5"
-													>UGG</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="brand-6"
-												/>
-												<label
-													class="custom-control-label"
-													for="brand-6"
-													>F&amp;F</label
-												>
-											</div>
-											<!-- End .custom-checkbox -->
-										</div>
-										<!-- End .filter-item -->
-
-										<div class="filter-item">
-											<div
-												class="
-													custom-control
-													custom-checkbox
-												"
-											>
-												<input
-													type="checkbox"
-													class="custom-control-input"
-													id="brand-7"
-												/>
-												<label
-													class="custom-control-label"
-													for="brand-7"
-													>Nike</label
+													:for="brand.brand"
+													>{{ brand.brand }}</label
 												>
 											</div>
 											<!-- End .custom-checkbox -->
@@ -1165,6 +698,7 @@
 </style>
 
 <script>
+	import '../assets/css/preloader.css'
 	import { mapActions, mapState } from "vuex";
 	export default {
 		name: "Products",
@@ -1174,6 +708,8 @@
 				previous: "",
 				next: "",
 				count: 0,
+				keyword_search_params: [],
+				brand_search_params: [],
 			};
 		},
 		beforeMount: function () {
@@ -1181,12 +717,19 @@
 			fetch("http://127.0.0.1:8000/products")
 				.then((res) => res.json())
 				.then((data) => {
-					console.log(data);
 					this.products = data.results;
 					this.previous = data.previous;
 					this.next = data.next;
 					this.count = data.count;
 					this.results = data.results.length;
+				});
+			fetch("http://127.0.0.1:8000/products/categories")
+				.then((res) => res.json())
+				.then((data) => {
+					this.brands = data.filter((element) => element.type == "brand");
+					this.keywords = data.filter(
+						(element) => element.type == "keyword"
+					);
 				});
 		},
 		methods: {
@@ -1200,13 +743,109 @@
 						this.next = data.next;
 					});
 			},
+			filterProducts: async function (filter_link) {
+				let results;
+				await fetch(filter_link)
+					.then((res) => res.json())
+					.then((data) => {
+						results = data;
+					});
+				return results
+			},
+			getFilterQueries: function (keywords, brand) {
+				let parameters = [];
+				if (keywords.length > 0) {
+					for (let keyword of keywords) {
+						if (brand != "") {
+							let query_param = `?search=${keyword}&brand=${brand}`;
+							parameters.push(query_param);
+						} else {
+							let query_param = `?search=${keyword}`;
+							parameters.push(query_param);
+						}
+					}
+				}
+				else{
+					let query_param = `?brand=${brand}`;
+					parameters.push(query_param);
+				}
+				return parameters;
+			},
 			...mapActions(["addToCart", "removeFromCart"]),
-			formatCurrency: function (price){
+			formatCurrency: function (price) {
 				return price.toLocaleString();
-			}
+			},
 		},
 		computed: {
-			...mapState(["cart"])
+			...mapState(["cart"]),
+		},
+		watch: {
+			keyword_search_params: async function () {
+				let queries = this.getFilterQueries(
+					this.keyword_search_params,
+					this.brand_search_params
+				);
+				console.log(queries);
+				let results = [];
+				let count = 0;
+				let data;
+				if (this.keyword_search_params.length > 0) {
+					for (let query of queries) {
+						data = await this.filterProducts(
+							`http://127.0.0.1:8000/products${query}`
+						);
+
+						if (data) {
+							console.log('data', data);
+							count += data.count;
+							results.push(...data.results);
+							console.log('concat', results, data.results);
+						}
+						console.log(data)
+					}
+					if (data) {
+						console.log("results", data);
+						this.products = results;
+						this.previous = data.previous;
+						this.next = data.next;
+						this.count = count;
+						this.results = results.length;
+					}
+				}
+			},
+			brand_search_params: async function () {
+				let queries = this.getFilterQueries(
+					this.keyword_search_params,
+					this.brand_search_params
+				);
+				console.log(queries)
+				let results = [];
+				let count = 0;
+				let data;
+				if (this.brand_search_params.length > 0) {
+					for (let query of queries) {
+						data = await this.filterProducts(
+							`http://127.0.0.1:8000/products${query}`
+						);
+
+						if (data) {
+							console.log('data', data);
+							count += data.count;
+							results.push(...data.results);
+							console.log('concat', results, data.results);
+						}
+						console.log(data)
+					}
+					if (data) {
+						console.log("results", data);
+						this.products = results;
+						this.previous = data.previous;
+						this.next = data.next;
+						this.count = count;
+						this.results = results.length;
+					}
+				}
+			},
 		},
 	};
 </script>

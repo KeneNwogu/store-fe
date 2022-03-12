@@ -86,8 +86,8 @@
                         <div class="product-details-footer">
                             <div class="product-cat">
                                 <span>Category:</span>
-                                <a href="#">{{ productData.gender }}</a>,
-                                <a href="#">{{ productData.brand }}</a>,
+                                <router-link :to="{ name: 'Products', query: { category: productData.gender }}">{{ productData.gender }}</router-link>,
+                                <router-link :to="{ name: 'Products', query: { category: productData.brand }}">{{ productData.brand }}</router-link>,
                             </div><!-- End .product-cat -->
 
                             <div class="social-icons social-icons-sm">
