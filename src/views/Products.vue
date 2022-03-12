@@ -714,7 +714,7 @@
 		},
 		beforeMount: function () {
 			// fetch products from db (page 1)
-			fetch("http://127.0.0.1:8000/products")
+			fetch("http://thegorana.herokuapp.com/products")
 				.then((res) => res.json())
 				.then((data) => {
 					this.products = data.results;
@@ -723,7 +723,7 @@
 					this.count = data.count;
 					this.results = data.results.length;
 				});
-			fetch("http://127.0.0.1:8000/products/categories")
+			fetch("http://thegorana.herokuapp.com/products/categories")
 				.then((res) => res.json())
 				.then((data) => {
 					this.brands = data.filter((element) => element.type == "brand");
@@ -792,7 +792,7 @@
 				if (this.keyword_search_params.length > 0) {
 					for (let query of queries) {
 						data = await this.filterProducts(
-							`http://127.0.0.1:8000/products${query}`
+							`http://thegorana.herokuapp.com/products${query}`
 						);
 
 						if (data) {
@@ -825,7 +825,7 @@
 				if (this.brand_search_params.length > 0) {
 					for (let query of queries) {
 						data = await this.filterProducts(
-							`http://127.0.0.1:8000/products${query}`
+							`http://thegorana.herokuapp.com/products${query}`
 						);
 
 						if (data) {

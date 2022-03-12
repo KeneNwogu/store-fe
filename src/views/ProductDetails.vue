@@ -124,7 +124,7 @@ export default {
     methods: {
         fetchProductData: function(){
             let id = this.$route.params.id 
-            fetch(`http://127.0.0.1:8000/products/${id}`)
+            fetch(`http://thegorana.herokuapp.com/products/${id}`)
                 .then((res) => res.json())
                 .then((data) => {
                     this.productData = data
