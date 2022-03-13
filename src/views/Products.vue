@@ -206,7 +206,7 @@
 					</div>
 					<!-- End .toolbox -->
 
-					<div class="products mb-3" v-if="products">
+					<div class="products mb-3" v-if="products.length > 0">
 						<div class="row justify-content-center">
 							<!-- for each product from api -->
 							<div
@@ -459,18 +459,15 @@
 												<input
 													type="checkbox"
 													class="custom-control-input"
+													:name="keyword.keyword"
 													:value="keyword.keyword"
 													:id="keyword.keyword"
-													v-model="
-														keyword_search_params
-													"
+													
 												/>
 												<label
 													class="custom-control-label"
 													:for="keyword.keyword"
-													>{{
-														keyword.keyword
-													}}</label
+													>{{ keyword.keyword }}</label
 												>
 											</div>
 											<!-- End .custom-checkbox -->
@@ -708,6 +705,7 @@
 				previous: "",
 				next: "",
 				count: 0,
+				keywords: [],
 				keyword_search_params: [],
 				brand_search_params: [],
 			};
