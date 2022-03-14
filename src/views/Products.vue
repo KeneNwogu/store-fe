@@ -462,7 +462,7 @@
 													:name="keyword.keyword"
 													:value="keyword.keyword"
 													:id="keyword.keyword"
-													
+													v-model="keyword_search_params"
 												/>
 												<label
 													class="custom-control-label"
